@@ -2,7 +2,7 @@ import { LightningElement, api} from 'lwc';
 
 export default class StudentTile extends LightningElement {
     @api student = {
-        Name:'[Sreelakshmi]',
+        Name:'Sreelakshmi',
         PhotoUrl:'/services/images/photo/003B0FakePictId',
 
     };
