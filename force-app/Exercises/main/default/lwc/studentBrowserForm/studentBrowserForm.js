@@ -82,7 +82,7 @@ export default class StudentBrowserForm extends NavigationMixin(LightningElement
             },
             state: {
                 defaultFieldValues: encodeDefaultFieldValues({
-                    Instructor__c: this.selectedInstructorId
+                    Instructor__c: this.selectedInstructorId,
                 })
             }
         };

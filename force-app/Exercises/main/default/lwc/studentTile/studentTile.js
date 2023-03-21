@@ -13,7 +13,7 @@ export default class StudentTile extends LightningElement {
         return (this.selectedStudentId===this.student.Id) ? "tile selected" : "tile";
     }
     studentClick(){
-        const evt= new CustomEvent('studentselected',{detail:{studentId: this.student.Id}});
+        const evt= new CustomEvent('studentselected', { bubbles:true, composed:true, detail:{studentId: this.student.Id}});
         this.dispatchEvent(evt);
     }
 }
