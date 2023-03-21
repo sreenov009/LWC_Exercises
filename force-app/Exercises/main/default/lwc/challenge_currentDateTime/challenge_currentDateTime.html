@@ -1,0 +1,9 @@
+<template>
+    <lightning-card>
+        <lightning-formatted-date-time value={reloadedDateTime} year="numeric" month="numeric" day="2-digit"
+            weekday="long" hour="2-digit" minute="2-digit" second="2-digit" time-zone-name="short" label="Click"
+            time-zone="America/New_York"></lightning-formatted-date-time>
+        <lightning-button-icon icon-name="action:refresh" slot="actions" onclick={buttonClick}></lightning-button-icon>
+
+    </lightning-card>
+</template>
