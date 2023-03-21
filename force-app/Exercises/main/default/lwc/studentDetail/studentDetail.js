@@ -9,6 +9,7 @@ import FIELD_Name from '@salesforce/schema/Contact.Name';
 import FIELD_Description from '@salesforce/schema/Contact.Description';
 import FIELD_Email from '@salesforce/schema/Contact.Email';
 import FIELD_Phone from '@salesforce/schema/Contact.Phone';
+import contactID from '@salesforce/schema/Contact.Id';
 
 const fields = [FIELD_Name,FIELD_Description,FIELD_Email,FIELD_Phone];
 
@@ -16,7 +17,7 @@ export default class StudentDetail extends LightningElement {
 
 	// TODO #3: locate a valid Contact ID in your scratch org and store it in the studentId property.
 	// Example: studentId = '003S000001SBAXEIA5';
-	studentId = '003DM000020ug8CYAQ';
+	studentId = contactID;
 
 	//TODO #4: use wire service to call getRecord, passing in our studentId and array of fields.
 	//		   Store the result in a property named wiredStudent.
