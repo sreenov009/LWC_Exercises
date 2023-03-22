@@ -22,7 +22,8 @@
     <label>Certification</label>
     <navType>Standard</navType>
     <tabs>standard-home</tabs>
-    <tabs>Deliveries_Map</tabs>
+    <tabs>AwInstructors</tabs>
+    <tabs>AwInstructors_Cmp_Tab</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>Certification__c</tabs>
@@ -32,5 +33,6 @@
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>TripReport__c</tabs>
+    <tabs>Course_Attendee__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>
