@@ -4,7 +4,6 @@ import { NavigationMixin } from 'lightning/navigation';
 export default class StudentBrowser extends NavigationMixin(LightningElement) {
 	@api columnConfig;
 	@api pkField;
-	
 	rows;
 	_selectedRow; 
 
@@ -16,15 +15,6 @@ export default class StudentBrowser extends NavigationMixin(LightningElement) {
 	@api
 	get rowData() {
 		return this.rows;
-	}
-
-	@api selectedStudentRecord(recordId){
-		
-		const mySelector = `tr[data-pk = '${recordId}']`;
-		const selectedRow = this.template.querySelector(mySelector);
-		if(selectedRow){
-			this.highlightSelectedRow(selectedRow);
-		}
 	}
 
 	handleRowDblClick (event) {
