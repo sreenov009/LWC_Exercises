@@ -14,7 +14,7 @@
             </div>
         </lightning-tab>
     </lightning-tabset>
-    <c-responsive-datatable pk-field="Id" column-config={cols} row-data={students.data}
+    <c-responsive-datatable pk-field="Id" column-config={cols} row-data={students.data} onrowclick={handleRowClick}
         onrowdblclick={handleRowDblClick}>
     </c-responsive-datatable>
 </template>
