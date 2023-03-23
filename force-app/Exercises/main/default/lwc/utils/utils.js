@@ -23,4 +23,7 @@ export default class Utils  {
         });
         firingComponent.dispatchEvent(evt);
     }
+    static getDisplayValue(data, field) {
+        return getFieldDisplayValue(data, field) ? getFieldDisplayValue(data, field) : getFieldValue(data, field);
+    }
 }
