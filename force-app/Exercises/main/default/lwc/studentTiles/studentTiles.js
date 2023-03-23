@@ -6,4 +6,8 @@ export default class StudentTiles extends LightningElement {
     handleStudentSelected(event){
         this.selectedStudentId=event.detail.studentId;
     }
+
+    @api setSelectedStudent(studentId){
+        this.selectedStudentId=studentId;
+    }
 }

@@ -17,6 +17,14 @@ export default class StudentBrowser extends NavigationMixin(LightningElement) {
 		return this.rows;
 	}
 
+	@api setSelectedRecord(recordId){
+		const mySelector=`tr[data-pk='${recordId}']`;
+		const selectedRow=this.template.querySelector(mySelector);
+		if(selectedRow){
+			this.highlightSelectedRow(selectedRow);
+		}
+	}
+
 	handleRowDblClick (event) {
 		const studentId = event.detail.pk;
 		this[NavigationMixin.Navigate]({

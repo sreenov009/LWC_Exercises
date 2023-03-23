@@ -52,7 +52,8 @@ export default class StudentBrowser extends LightningElement {
       grid.setSelectedRecord(studentId);
     }
     publish(this.messageContext,
-    SELECTED_STUDENT_CHANNEL,{studentId: studentId}
+            SELECTED_STUDENT_CHANNEL,
+            {studentId: studentId}
     );
   }
 }
