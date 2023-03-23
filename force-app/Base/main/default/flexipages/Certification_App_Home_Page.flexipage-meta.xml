@@ -38,6 +38,12 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>challenge_contactDirectory</componentName>
+                <identifier>c_challenge_contactDirectory</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentName>challenge_currentDateTime</componentName>
                 <identifier>c_challenge_currentDateTime</identifier>
             </componentInstance>
