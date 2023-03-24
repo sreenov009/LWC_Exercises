@@ -3,10 +3,10 @@
         <c-modal header={modalHeader}>
             {modalContent}
             <div slot="footer">
-                <lightning-button label="Close" variant="brand" onclick={closeModal}>
-                </lightning-button>
+                <lightning-button label="Close" variant="brand" onclick={closeModal}></lightning-button>
             </div>
         </c-modal>
+
         <lightning-layout horizontal-align="space" multiple-rows>
 
             <lightning-layout-item padding="around-small" size="12" small-device-size="12" medium-device-size="3"
@@ -35,15 +35,16 @@
             <template if:true={certifiedStudentsView}>
                 <lightning-layout-item padding="around-small" size="12" small-device-size="12" medium-device-size="9"
                     large-device-size="10">
-                    <c-certified-student-list certification-name={certificationName} certification-id={certificationId}>
-                    </c-certified-student-list>
+                    <c-certified-student-list certification-name={certificationName}
+                        certification-id={certificationId}></c-certified-student-list>
                 </lightning-layout-item>
+
             </template>
 
             <template if:true={certPopularityView}>
                 <lightning-layout-item padding="around-small" size="12" small-device-size="12" medium-device-size="9"
                     large-device-size="10">
-                    <lightning-card title="Cert Popularity will go here"></lightning-card>
+                    <c-cert-popularity></c-cert-popularity>
                 </lightning-layout-item>
             </template>
 
