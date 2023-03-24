@@ -29,26 +29,6 @@ export default class TripReportBrowser extends LightningElement {
 	tripReports;
 	selectedRecordId=0;
 
-
-	onBtnNewClick() {
-		this.changeTripReportMode('add');
-	}
-	
-
-	changeTripReportMode(newMode) {
-		let eventDetail = {
-			mode: newMode
-		}
-		if (newMode === 'edit') {
-			eventDetail.Id = this.selectedRecordId;
-		}
-		const evt = new CustomEvent('tripreportmodechange', {
-			detail: eventDetail
-		});
-		this.dispatchEvent(evt);
-		
-	}
-
 	connectedCallback() {
 		getAll()
 		.then((result) => {
@@ -67,6 +47,33 @@ export default class TripReportBrowser extends LightningElement {
 			} 
 		});
 	}
+
+	onBtnNewClick() {
+		this.changeTripReportMode('add');
+	}
+
+	handleRowClick(event) {
+		this.selectedRecordId = event.detail.pk;
+	}
+
+	handleRowDblClick() {
+		this.changeTripReportMode('edit');
+	}
+
+	changeTripReportMode(newMode) {
+		let eventDetail = {
+			mode: newMode
+		}
+		if (newMode === 'edit') {
+			eventDetail.Id = this.selectedRecordId;
+		}
+		const evt = new CustomEvent('tripreportmodechange', {
+			detail: eventDetail
+		});
+		this.dispatchEvent(evt);
+		
+	}
+	
 	
 
 }
