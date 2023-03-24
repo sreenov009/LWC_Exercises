@@ -48,6 +48,10 @@ export default class TripReportBrowser extends LightningElement {
 		});
 	}
 
+	onBtnEditClick() {
+		this.changeTripReportMode('edit');
+	}
+
 	onBtnNewClick() {
 		this.changeTripReportMode('add');
 	}
