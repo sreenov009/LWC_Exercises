@@ -42,6 +42,8 @@ export default class TripReportFormAdvanced extends LightningElement {
 	reviewType;
 	rating = 3;
 	review;
+
+	saveButtonDisabled = true;
 	
 	//TODO #3: following the examples of and FIELD_DATE and FIELD_INSTRUCTOR, import the name, rating, review type, and review fields
 	@wire(getRecord, { recordId: '$recordId', fields:fieldsToLoad })
@@ -119,6 +121,16 @@ export default class TripReportFormAdvanced extends LightningElement {
 	onSave() {
 		this.saveTripReport();
 	}
+
+	onBlur() {
+		this.saveButtonDisabled = !this.validateFields();
+	}
+
+	validateFields() {
+		let fields = Array.from(this.template.querySelectorAll('.validateMe'));
+		return fields.every((currentField) => currentField.checkValidity());  
+	}
+
 	saveTripReport() {
 		const fieldsToSave = {}
 		fieldsToSave[FIELD_DATE.fieldApiName] = this.dateVisited;
@@ -159,7 +171,6 @@ export default class TripReportFormAdvanced extends LightningElement {
 			updateRecord(recordInput)
                 .then(() => {
 					Utils.showToast(this,'Success', 'Trip report updated', 'success');
-					this.returnToBrowseMode(this.recordId);
                 })
                 .catch(error => {
                     let errors = reduceErrors(error);
