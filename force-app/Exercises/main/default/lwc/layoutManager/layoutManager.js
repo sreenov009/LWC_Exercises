@@ -12,7 +12,29 @@ export default class LayoutManager extends LightningElement {
 	certificationName = '';
 	certificationId = 0;
 	modalHeader = '';
-	modalContent='';
+	modalContent ='';
+	loading=true;
+
+	connectedCallback() {
+		Utils.showToast(
+			this,
+			'Welcome',
+			"Don't forget to check back here for updated class schedules and assignments",
+			'info'
+		);
+	}
+
+	handleShowModal(event) {
+		this.modalHeader = event.detail.header;
+		this.modalContent = event.detail.content;
+		const modal = this.template.querySelector('c-modal');
+		modal.show();
+	}
+
+	closeModal() {
+		const modal = this.template.querySelector('c-modal');
+		modal.hide();
+	}
 
 	handleNavItemSelected(event) {
 		const selectedItemName = event.detail.itemName;
@@ -31,16 +53,11 @@ export default class LayoutManager extends LightningElement {
 		}
 	}
 
-	handleShowModal(event){
-		this.modalheader = event.detail.header;
-		this.modalContent=event.detail.content;
-		const modal = this.template.querySelector('c-modal');
-		modal.show();
+	handleLoading() {
+		this.loading = true;
 	}
-
-	closeModal(){
-		const modal = this.template.querySelector('c-modal');
-		modal.hide();
+	handleDoneLoading() {
+		this.loading = false;
 	}
 
 	get studentBrowserView() {
@@ -54,13 +71,5 @@ export default class LayoutManager extends LightningElement {
 	}
 	get certPopularityView() {
 		return (this.viewMode === VIEW_POPULARITY);
-	}
-	connectedCallback(){
-		Utils.showToast(
-			this,
-			'Welcome',
-			"Don't forget to check back here for updated class schedules and assignments",
-			'info'
-		);
 	}
 }

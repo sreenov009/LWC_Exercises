@@ -1,11 +1,15 @@
 <template>
-    <span onshowmodal={handleShowModal}>
+    <span onshowmodal={handleShowModal} onloading={handleLoading} ondoneloading={handleDoneLoading}>
         <c-modal header={modalHeader}>
             {modalContent}
             <div slot="footer">
                 <lightning-button label="Close" variant="brand" onclick={closeModal}></lightning-button>
             </div>
         </c-modal>
+        <template if:true={loading}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+
 
         <lightning-layout horizontal-align="space" multiple-rows>
 
