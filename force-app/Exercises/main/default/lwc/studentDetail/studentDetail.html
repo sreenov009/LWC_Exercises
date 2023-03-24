@@ -11,13 +11,27 @@
             <!-- this will be filled out during the lab -->
             <lightning-button slot="actions" label="Go to record" onclick={onGoToRecord}>
             </lightning-button>
-            <div class="slds-var-p-horizontal_medium">
+            <div class="slds-var-p-horizontal_medium slds-var-m-bottom_medium">
                 <p><lightning-formatted-email value={email}></lightning-formatted-email></p>
                 <p><lightning-formatted-phone value={phone}></lightning-formatted-phone></p>
                 <p>{description}</p>
             </div>
+
         </template>
 
     </lightning-card>
+
+    <div if:true={wiredStudent.data} class="slds-var-m-vertical_small  history">
+        <lightning-tabset>
+            <lightning-tab label="History">
+                <template if:false={hasHistory}>
+                    The student has not registered for any courses.
+                </template>
+            </lightning-tab>
+            <lightning-tab if:true={hasHistory} label="Edit Notes">
+                <c-student-note-editor history={history}></c-student-note-editor>
+            </lightning-tab>
+        </lightning-tabset>
+    </div>
 
 </template>

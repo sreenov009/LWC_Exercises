@@ -11,15 +11,38 @@ import FIELD_Email from '@salesforce/schema/Contact.Email';
 import FIELD_Phone from '@salesforce/schema/Contact.Phone';
 const fields = [FIELD_Name, FIELD_Description, FIELD_Email, FIELD_Phone];
 
+import getCoursesAttended from '@salesforce/apex/StudentDetail.getCoursesAttended';
+
 export default class StudentDetail extends NavigationMixin(LightningElement) {
 
 	studentId;
 	subscription;
+	history;
 
 	@wire(MessageContext) messageContext;
 
 	@wire(getRecord, { recordId: '$studentId', fields })
 	wiredStudent;
+
+	@wire(getCoursesAttended, {contactId: '$studentId'})
+	wired_getCoursesAttended(result) {
+		let data = result.data;
+		let error = result.error;
+		this.history = [];
+		if (data) {
+			this.history = data.map ( (c) => ({
+				courseAttendeeId: c.Id,
+				startDate: c.Course_Delivery__r.Start_Date__c,
+				courseName: c.Course_Delivery__r.Course__r.Name,
+				instructorNotes: (c.InstructorNotes__c) ? c.InstructorNotes__c : 'No Notes',
+				status: c.Status__c,
+				instructorName: (c.Course_Delivery__r.Instructor__c) ? c.Course_Delivery__r.Instructor__r.Name : 'Unassigned',
+				label: c.Course_Delivery__r.Course__r.Name + ' ' +c.Course_Delivery__r.Start_Date__c
+			}));
+		} else if (error) {
+			this.error=error;
+		}
+	}
 	
 	connectedCallback() {
 		if(this.subscription){
@@ -62,6 +85,9 @@ export default class StudentDetail extends NavigationMixin(LightningElement) {
 		return title;
 	}
 
+	get hasHistory() {
+		return this.history && this.history.length > 0;
+	}
 	handleStudentChange(message) {
 		this.studentId = message.studentId;
 	}

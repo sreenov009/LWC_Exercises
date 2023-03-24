@@ -1,0 +1,15 @@
+<template>
+    <div class="slds-var-p-around_small">
+        <lightning-combobox name="noteselector" label="Select a delivery" variant="label-hidden" options={history}
+            onchange={onCourseChange} placeholder="Select a delivery" value={courseAttendeeId}>
+        </lightning-combobox>
+        <br />
+        <lightning-input-rich-text onchange={onNoteChange}
+            disabled-categories="FORMAT_FONT,FORMAT_BODY,ALIGN_TEXT,INSERT_CONTENT" value={instructorNotes}
+            class="slds-var-m-bottom_small"></lightning-input-rich-text>
+
+        <div class="slds-text-align_center">
+            <lightning-button variant="brand" label="Save" onclick={onSave}></lightning-button>
+        </div>
+    </div>
+</template>
