@@ -20,6 +20,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AwNavigation</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CertPopularity</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CertificationElementsData</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -32,6 +40,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CertifiedStudentList</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Contacts</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ContactsData</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -41,6 +57,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CourseAttendeesData</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CourseDeliveries</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -357,6 +377,10 @@
         <object>TripReport__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <pageAccesses>
+        <apexPage>DeliveryListVF</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Customer</recordType>

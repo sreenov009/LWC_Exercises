@@ -30,11 +30,6 @@
         <name>Deliveries_Map</name>
     </customTabs>
     <quickActions>
-        <label><!-- Delivery List Action -->
-        </label>
-        <name>Delivery_List_Action</name>
-    </quickActions>
-    <quickActions>
         <label><!-- LogACall -->
         </label>
         <name>LogACall</name>
